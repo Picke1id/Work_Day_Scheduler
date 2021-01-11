@@ -12,7 +12,7 @@ The motivation behind this project was to create a daily planner that can manage
 ## Code Example
 Here is an example of the planner layout:
 
-![Planner Demo]()
+![Planner Demo](./Images/PlannerDemo.png)
 
 ## Features
 * Ability to type and save events to planner.
