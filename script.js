@@ -38,6 +38,22 @@ $(document).ready(function(){
             $(block).addClass("future");
         };
     };
+    
+    //METHOD FOR SAVING EVENT TO LOCAL STORAGE
+    $("div[id^='saveBtn']").on("click", function(){
+        var time = $(this).attr("data-hour");
+        var event = $("#" + time + "Block").val();
+        localStorage.setItem(time, event);
+    });
+    
+    //METHOD FOR DISPLAYING SAVED EVENT
+    function showEvents(){
+        for (var i = 0 ; i <= 12; i++){
+            $("#" + i + "Block").val(localStorage.getItem(i));
+        };
+    };
 
+    //CALLING SAVED EVENTS
+    showEvents();
     
 });
