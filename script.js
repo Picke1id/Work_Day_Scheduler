@@ -14,4 +14,30 @@ $(document).ready(function(){
     $("#4Block").attr("data-time", moment("4:00 pm", "h:mm a").format("HH"));
     $("#5Block").attr("data-time", moment("5:00 pm", "h:mm a").format("HH"));
     
+    //METHOD FOR CHANGING TIME BLOCK COLORS ACCORDING TO CURRENT TIME
+    var currentTime = moment().format("HH");
+    var currentTimeInt = parseInt(currentTime);
+
+    for (var i = 0; i <= 12; i++){
+        var block = $("#" + i + "Block");
+        var blockTime = $("#" + i + "Block").attr("data-time");
+        var blockTimeInt = parseInt(blockTime);
+
+        //IF BLOCK TIME IS PRESENT
+        if(currentTimeInt === blockTimeInt){
+            $(block).addClass("present");
+        };
+
+        //IF BLOCK TIME HAS PAST
+        if(currentTimeInt > blockTimeInt){
+            $(block).addClass("past");
+        };
+
+        //IF BLOCK TIME IS IN FUTURE
+        if(currentTimeInt < blockTimeInt){
+            $(block).addClass("future");
+        };
+    };
+
+    
 });
